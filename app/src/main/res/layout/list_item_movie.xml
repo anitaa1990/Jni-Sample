@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="MovieListItemBinding" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        tools:background="@color/color_bg_root">
+
+        <ImageView
+            android:id="@+id/item_img"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:scaleType="fitXY"
+            tools:src="@drawable/ic_placeholder" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            tools:background="@color/colorPrimaryDark">
+
+            <LinearLayout
+                android:id="@+id/item_palette"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.7"
+                android:orientation="vertical" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="3dp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_xmedium"
+                android:textStyle="bold"
+                tools:text="title" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

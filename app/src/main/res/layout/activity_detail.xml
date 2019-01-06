@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="DetailActivityBinding" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_bg_root"
+        android:paddingBottom="@dimen/margin_xlarge">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/root_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+
+                <ImageView
+                    android:transitionName="@string/transition_image"
+                    android:id="@+id/image"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintDimensionRatio="H,16:8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_detail_image_frame_margin_top"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/movie_detail_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_xlarge"
+                    android:layout_marginRight="@dimen/margin_large"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="0dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                    app:layout_constraintWidth_default="wrap">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_large"
+                        android:paddingLeft="@dimen/padding_medium"
+                        android:paddingTop="@dimen/padding_large">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:transitionName="@string/transition_title"
+                            android:id="@+id/movie_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/gt_medium"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/margin_large"
+                            android:paddingEnd="@dimen/padding"
+                            android:paddingRight="@dimen/padding"
+                            android:paddingBottom="@dimen/padding"
+                            android:textColor="@color/color_bg_root"
+                            android:textSize="@dimen/font_x_medium_large"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <LinearLayout
+                            android:id="@+id/layout_imdb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/margin_xxxxxxlarge"
+                            android:layout_marginBottom="@dimen/margin"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/padding_small"
+                            android:paddingTop="2dp"
+                            android:paddingRight="@dimen/padding_small"
+                            android:paddingBottom="2dp"
+                            android:visibility="invisible"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/movie_title">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:adjustViewBounds="true" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/imdbRating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:drawablePadding="@dimen/padding_small"
+                                android:fontFamily="@font/gt_medium"
+                                android:gravity="center_vertical"
+                                android:paddingTop="2dp"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/font_xsmall" />
+
+
+                        </LinearLayout>
+
+
+                        <com.an.moviesample.view.collectionpicker.CollectionPicker
+                            android:id="@+id/collection_item_picker"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="@dimen/margin_xxxxxxlarge"
+                            android:layout_marginRight="@dimen/margin"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/margin_xlarge"
+                            app:cp_itemBackgroundNormal="@color/blue"
+                            app:cp_itemBackgroundPressed="@color/blue"
+                            app:cp_simplified="true"
+                            app:cp_textPaddingBottom="@dimen/padding_xsmall"
+                            app:cp_textPaddingLeft="@dimen/padding_medium"
+                            app:cp_textPaddingRight="@dimen/padding_medium"
+                            app:cp_textPaddingTop="@dimen/padding_small"
+                            app:layout_constraintLeft_toRightOf="@+id/layout_imdb"
+                            app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/movie_desc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin"
+                            android:lineSpacingExtra="5dp"
+                            android:paddingTop="@dimen/margin"
+                            android:paddingRight="@dimen/margin_xlarge"
+                            android:paddingBottom="@dimen/margin_large"
+                            android:textColor="@color/text_desc_activity_detail"
+                            android:textSize="@dimen/font_small_medium"
+                            app:layout_constraintTop_toBottomOf="@+id/collection_item_picker" />
+
+
+                        <com.an.moviesample.view.collectionpicker.CollectionPicker
+                            android:id="@+id/movie_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="@dimen/margin"
+                            android:layout_marginBottom="@dimen/margin"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            app:cp_itemBackgroundNormal="@color/light_blue"
+                            app:cp_itemBackgroundPressed="@color/light_blue"
+                            app:cp_simplified="true"
+                            app:cp_textPaddingBottom="@dimen/padding_xsmall"
+                            app:cp_textPaddingLeft="@dimen/padding_medium"
+                            app:cp_textPaddingRight="@dimen/padding_medium"
+                            app:cp_textPaddingTop="@dimen/padding_small"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/movie_desc" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txt_runtime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/margin_large"
+                            android:layout_marginTop="@dimen/margin_large"
+                            android:fontFamily="@font/gt_medium"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingBottom="@dimen/margin"
+                            android:textColor="@color/text_runtime_activity_detail"
+                            android:textSize="@dimen/font_small"
+                            app:layout_constraintLeft_toRightOf="@+id/movie_status"
+                            app:layout_constraintTop_toBottomOf="@+id/movie_desc" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

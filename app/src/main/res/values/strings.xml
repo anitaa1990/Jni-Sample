@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieSample</string>
+    <string name="transition_image">image</string>
+    <string name="transition_title">title</string>
+
+    <string name="player_error">Error initializing YouTube player: %s</string>
+</resources>
